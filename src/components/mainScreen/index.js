@@ -7,10 +7,10 @@ function Popup(props) {
 
   const [inputValue, setInputValue] = useState(0);
 
-  const upDateInventory = (additional, quantity) => {
+  const upDateInventory = (action, quantity) => {
     return axios
-      .put("http://localhost:3030/inventory/636dbe586f6e64b0fae4fb45/update", {
-        additional: additional,
+      .put("http://localhost:3030/inventory/apple/update", {
+        action: action,
         quantity: quantity,
       })
       .then(function (res) {
