@@ -5,7 +5,7 @@ import axios from "axios";
 function Popup(props) {
   const { Popup = "", Inventory = { begin: 0, end: 0 } } = props;
 
-  const [inputValue, setInputValue] = useState(0);
+  const [inputValue, setInputValue] = useState("");
 
   const upDateInventory = (action, quantity) => {
     return axios
@@ -14,7 +14,7 @@ function Popup(props) {
         quantity: quantity,
       })
       .then(function (res) {
-        if (res.data == "Update failed") {
+        if (res.data === "Update failed") {
           return alert("Update failed");
         }
         alert("Update successful");
@@ -75,6 +75,7 @@ function Popup(props) {
                 type="number"
                 name="quantity"
                 min="1"
+                placeholder="0"
                 value={inputValue}
                 onChange={(e) => checkValue(e.target.value)}
               ></input>
@@ -82,7 +83,7 @@ function Popup(props) {
                 type="button"
                 onClick={() => {
                   upDateInventory(Popup, inputValue);
-                  setInputValue(0);
+                  setInputValue("");
                 }}
               >
                 Xác Nhận

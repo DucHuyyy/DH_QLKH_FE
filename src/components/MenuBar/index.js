@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Handle from "../Handle";
 import "./menubar.scss";
 import PopupElement from "../mainScreen";
