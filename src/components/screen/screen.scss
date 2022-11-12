@@ -1,0 +1,29 @@
+.Screen {
+  width: 1400px;
+  height: 700px;
+  background-color: #324c7b;
+  padding: 14px;
+  border-radius: 15px;
+
+  .container {
+    background-color: #475f84;
+    padding: 14px 0;
+    border-radius: 15px;
+    height: 670px;
+
+    header {
+      color: #fffefe;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid;
+      text-align: center;
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+
+  .screen-body {
+    display: flex;
+  }
+}

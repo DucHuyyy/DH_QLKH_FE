@@ -1,0 +1,16 @@
+.handle {
+  width: 150px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-text {
+    color: #fffefe;
+    margin-left: 30px;
+  }
+}
+
+.active {
+  color: rosybrown;
+}
