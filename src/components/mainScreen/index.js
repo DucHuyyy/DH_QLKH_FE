@@ -8,13 +8,25 @@ function Popup(props) {
   const [inputValue, setInputValue] = useState(0);
 
   const upDateInventory = (additional, quantity) => {
-    return axios.put(
-      "http://localhost:3030/inventory/636dbe586f6e64b0fae4fb45/update",
-      {
+    return axios
+      .put("http://localhost:3030/inventory/636dbe586f6e64b0fae4fb45/update", {
         additional: additional,
         quantity: quantity,
-      }
-    );
+      })
+      .then(function (res) {
+        if (res.data == "Update failed") {
+          return alert("Update failed");
+        }
+        alert("Update successful");
+      });
+  };
+
+  const checkValue = (e) => {
+    let newValue = e;
+    if (e < 0) {
+      newValue = -e;
+    }
+    setInputValue(newValue);
   };
 
   function showPopup(Popup) {
@@ -63,11 +75,15 @@ function Popup(props) {
                 type="number"
                 name="quantity"
                 min="1"
-                onChange={(e) => setInputValue(e.target.value)}
+                value={inputValue}
+                onChange={(e) => checkValue(e.target.value)}
               ></input>
               <button
                 type="button"
-                onClick={() => upDateInventory(Popup, inputValue)}
+                onClick={() => {
+                  upDateInventory(Popup, inputValue);
+                  setInputValue(0);
+                }}
               >
                 Xác Nhận
               </button>
